@@ -4,7 +4,7 @@ Run:  python pipeline.py
 """
 import time
 
-from etl import config, log
+from etl import log
 from etl import extract_step, member2_structural_cleaning, member3_missing_invalid
 from etl import member4_features, member5_reports_load
 
