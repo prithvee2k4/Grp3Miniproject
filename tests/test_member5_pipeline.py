@@ -2,6 +2,7 @@ import pytest
 
 import pipeline
 from etl import member5_reports_load as m5
+from etl import config
 
 if not m5.IMPLEMENTED:
     pytest.skip("Member 5 not merged yet", allow_module_level=True)
@@ -24,5 +25,5 @@ def test_top10_has_ten_rows(clean):
 
 def test_full_pipeline_writes_files(clean):
     pipeline.run_etl_pipeline()
-    assert (pipeline.config.REPORTS_DIR / "state_wise_report.csv").exists()
-    assert (pipeline.config.OUTPUT_DIR / "pipeline_log.txt").exists()
+    assert (config.REPORTS_DIR / "state_wise_report.csv").exists()
+    assert (config.OUTPUT_DIR / "pipeline_log.txt").exists()
