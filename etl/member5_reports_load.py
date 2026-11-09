@@ -157,11 +157,8 @@ def save_reports(reports, df):
 
     # Save all report CSV files
     for filename, report_df in reports.items():
-
         file_path = config.REPORTS_DIR / filename
-
         report_df.to_csv(file_path, index=False)
-
         log.step(f"[Member 5] Saved report: {file_path}")
 
     # Save the analysis-ready dataset in compressed CSV format
@@ -186,5 +183,4 @@ def save_reports(reports, df):
     )
 
     print(f"[Member 5] Pipeline log saved: {log_file}")
-
     print("[Member 5] All reports and output files saved successfully.")
