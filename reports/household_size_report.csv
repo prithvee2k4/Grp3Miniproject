@@ -1,0 +1,4 @@
+household_size_group,households,avg_household_size,avg_monthly_elec_bill,avg_monthly_expenditure
+Small (1-3),2977,2.53,673.81,6799.91
+Medium (4-6),9296,4.84,702.18,8064.84
+Large (7+),2578,8.7,731.74,8915.75
