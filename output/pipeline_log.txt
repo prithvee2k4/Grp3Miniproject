@@ -1,0 +1,36 @@
+[Extract] Reading dataset: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\raw_data\CEEW20IRES_20Data.csv
+[Extract] Validation successful: 14,851 rows x 517 columns
+[Extract] Raw copy saved: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\raw_data\ceew_ires_raw_copy.csv
+[Member 2] Renamed 21 columns to readable names
+[Member 2] Removed 0 duplicate rows
+[Member 2] Dropped 190 columns that are more than 90% empty
+[Member 2] Standardised text columns (trimmed spaces, fixed letter case)
+[Member 2] Converted interview_date to dates (0 could not be read)
+[Member 2] Added interview_start_hour
+[Member 2] Changed data types: memory 45.6 MB -> 38.4 MB
+[Member 2] finished: 14,851 rows x 328 columns
+[Member 3] Replaced 34,763 don't-know codes with missing values
+[Member 3] Validation blanked invalid values: {'avg_monthly_elec_bill': 299, 'age_group_counts': 1}
+[Member 3] Capped 201 outliers in land_area_sqft to [100, 14400]
+[Member 3] Capped 171 outliers in monthly_expenditure to [1558, 30000]
+[Member 3] Capped 183 outliers in avg_monthly_elec_bill to [53, 3382]
+[Member 3] Filled 1,645 missing values in land_area_sqft
+[Member 3] Filled 2,392 missing values in monthly_expenditure
+[Member 3] Filled 5,382 missing values in avg_monthly_elec_bill
+[Member 3] finished: 14,851 rows x 331 columns
+[Member 4] Added calculated columns
+[Member 4] Created age, household size, expenditure and bill groups
+[Member 4] Added state and household electricity bill rankings
+[Member 4] Sorted records by state, district and hhid
+[Transform] finished: 14,851 rows x 341 columns
+[Member 5] Generated 9 reports
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\cleaned_data.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\summary_statistics.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\state_wise_report.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\top10_districts_by_elec_bill.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\bottom10_districts_by_elec_bill.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\income_category_report.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\household_size_report.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\monthly_interview_report.csv
+[Member 5] Saved report: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\reports\remaining_missing_values_report.csv
+[Member 5] Saved analysis-ready dataset: C:\Users\Prithvi Vinayak P\Downloads\CEEW_ETL_Team_Package\CEEW_Energy_ETL\output\analysis_ready_data.csv.gz
