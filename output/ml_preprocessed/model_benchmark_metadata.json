@@ -1,0 +1,14 @@
+{
+  "target": "avg_monthly_elec_bill",
+  "target_interpretation": "Average monthly electricity bill, not electricity use in kWh.",
+  "training_households": 7575,
+  "folds_per_scheme": 5,
+  "validation_schemes": [
+    "Random shuffled K-fold",
+    "GroupKFold with state held out"
+  ],
+  "test_split_used": false,
+  "preprocessing": "Missingness and variance-based feature screening, imputation, and one-hot categories are fit using each training fold only.",
+  "feature_engineering": "The same ten rule-based features as the existing notebook; no target values are used to construct them.",
+  "model_settings": "Existing HGB settings are reused. CatBoost and XGBoost use fixed, moderate tree settings; no hyperparameter search was performed."
+}

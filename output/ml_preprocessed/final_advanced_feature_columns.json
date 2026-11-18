@@ -1,0 +1,12 @@
+[
+    "online_payment_status",
+    "fridge_bee_status_experiment",
+    "fridge_off_time_status_experiment",
+    "firewood_use_frequency_experiment",
+    "firewood_collect_purchase_experiment",
+    "firewood_collect_who_experiment",
+    "firewood_collect_frequency_experiment",
+    "fridge_count_experiment",
+    "fridge_age_experiment",
+    "rural_powercut_days_experiment"
+]

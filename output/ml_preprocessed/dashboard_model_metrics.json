@@ -1,0 +1,251 @@
+{
+  "target_scope": {
+    "bill": "Average monthly electricity bill in rupees.",
+    "consumption": "q610_b_billed_units: units recorded on an observed electricity bill; the codebook must confirm the unit and billing-period interpretation."
+  },
+  "consumption_pilot": {
+    "status": "exploratory_only",
+    "prediction_enabled": false,
+    "observed_rows": 4229,
+    "total_rows": 14851,
+    "coverage": 0.28476196889098376,
+    "coverage_by_state": {
+      "Andhra Pradesh": {
+        "households": 498,
+        "units_observed": 467,
+        "coverage": 0.9377510040160643
+      },
+      "Assam": {
+        "households": 399,
+        "units_observed": 182,
+        "coverage": 0.45614035087719296
+      },
+      "Bihar": {
+        "households": 1346,
+        "units_observed": 81,
+        "coverage": 0.060178306092124816
+      },
+      "Chhattisgarh": {
+        "households": 386,
+        "units_observed": 33,
+        "coverage": 0.08549222797927461
+      },
+      "Delhi": {
+        "households": 395,
+        "units_observed": 62,
+        "coverage": 0.1569620253164557
+      },
+      "Gujarat": {
+        "households": 798,
+        "units_observed": 425,
+        "coverage": 0.5325814536340853
+      },
+      "Haryana": {
+        "households": 383,
+        "units_observed": 69,
+        "coverage": 0.1801566579634465
+      },
+      "Himachal Pradesh": {
+        "households": 384,
+        "units_observed": 1,
+        "coverage": 0.0026041666666666665
+      },
+      "Jharkhand": {
+        "households": 386,
+        "units_observed": 13,
+        "coverage": 0.03367875647668394
+      },
+      "Karnataka": {
+        "households": 788,
+        "units_observed": 199,
+        "coverage": 0.25253807106598986
+      },
+      "Kerala": {
+        "households": 385,
+        "units_observed": 41,
+        "coverage": 0.10649350649350649
+      },
+      "Madhya Pradesh": {
+        "households": 964,
+        "units_observed": 190,
+        "coverage": 0.1970954356846473
+      },
+      "Maharashtra": {
+        "households": 1409,
+        "units_observed": 896,
+        "coverage": 0.6359119943222143
+      },
+      "Odisha": {
+        "households": 586,
+        "units_observed": 256,
+        "coverage": 0.43686006825938567
+      },
+      "Punjab": {
+        "households": 397,
+        "units_observed": 123,
+        "coverage": 0.30982367758186397
+      },
+      "Rajasthan": {
+        "households": 973,
+        "units_observed": 217,
+        "coverage": 0.22302158273381295
+      },
+      "Tamil Nadu": {
+        "households": 969,
+        "units_observed": 56,
+        "coverage": 0.05779153766769866
+      },
+      "Telangana": {
+        "households": 493,
+        "units_observed": 443,
+        "coverage": 0.8985801217038539
+      },
+      "Uttar Pradesh": {
+        "households": 1548,
+        "units_observed": 119,
+        "coverage": 0.07687338501291989
+      },
+      "Uttarakhand": {
+        "households": 384,
+        "units_observed": 16,
+        "coverage": 0.041666666666666664
+      },
+      "West Bengal": {
+        "households": 980,
+        "units_observed": 340,
+        "coverage": 0.3469387755102041
+      }
+    },
+    "warning": "Billed-unit observations are sparse and highly uneven across states. State-held-out validation is required before enabling predictions; do not interpret the target as monthly kWh without verifying the survey codebook."
+  },
+  "models": {
+    "avg_monthly_elec_bill": {
+      "training_rows": 9469,
+      "features": [
+        "respondent_age",
+        "household_size",
+        "monthly_expenditure",
+        "q302_grid_hrs_no",
+        "q467_fridge_no",
+        "q410_ceiling_fan_no",
+        "q460_tv_no",
+        "q405_c_led_bulb_no",
+        "state",
+        "q301_grid_yn",
+        "q312_grid_elec_meter_yn",
+        "q466_fridge_yn",
+        "q427_ac_yn",
+        "q501_png_use_yn",
+        "q502_lpg_use_yn"
+      ],
+      "cross_validation": {
+        "random_5fold": {
+          "MAE": 319.7939775258444,
+          "RMSE": 465.151204855756,
+          "R2": 0.5105232017008872
+        },
+        "state_held_out_5fold": {
+          "MAE": 445.2161479588026,
+          "RMSE": 599.4624350677698,
+          "R2": 0.18704265883585125
+        }
+      },
+      "global_permutation_importance": [
+        {
+          "feature": "monthly_expenditure",
+          "mean_r2_decrease": 0.19736123676160514
+        },
+        {
+          "feature": "q466_fridge_yn",
+          "mean_r2_decrease": 0.04628631319104914
+        },
+        {
+          "feature": "q427_ac_yn",
+          "mean_r2_decrease": 0.029729512837875817
+        },
+        {
+          "feature": "q410_ceiling_fan_no",
+          "mean_r2_decrease": 0.01261854756613622
+        },
+        {
+          "feature": "q460_tv_no",
+          "mean_r2_decrease": 0.0030714909890965
+        },
+        {
+          "feature": "q501_png_use_yn",
+          "mean_r2_decrease": 0.0028107436713360467
+        },
+        {
+          "feature": "household_size",
+          "mean_r2_decrease": 0.0007988347784696998
+        },
+        {
+          "feature": "q312_grid_elec_meter_yn",
+          "mean_r2_decrease": 0.000774638399383698
+        },
+        {
+          "feature": "q502_lpg_use_yn",
+          "mean_r2_decrease": 0.0002743423059999565
+        },
+        {
+          "feature": "q405_c_led_bulb_no",
+          "mean_r2_decrease": 0.00010951122971473541
+        },
+        {
+          "feature": "state",
+          "mean_r2_decrease": 0.0
+        },
+        {
+          "feature": "q301_grid_yn",
+          "mean_r2_decrease": 0.0
+        },
+        {
+          "feature": "q467_fridge_no",
+          "mean_r2_decrease": -0.00012290145133035207
+        },
+        {
+          "feature": "respondent_age",
+          "mean_r2_decrease": -0.0033493892201973486
+        },
+        {
+          "feature": "q302_grid_hrs_no",
+          "mean_r2_decrease": -0.007765111558884456
+        }
+      ],
+      "artifact": "dashboard_bill_model.pkl"
+    },
+    "q610_b_billed_units": {
+      "training_rows": 4229,
+      "features": [
+        "respondent_age",
+        "household_size",
+        "monthly_expenditure",
+        "q302_grid_hrs_no",
+        "q467_fridge_no",
+        "q410_ceiling_fan_no",
+        "q460_tv_no",
+        "q405_c_led_bulb_no",
+        "state",
+        "q301_grid_yn",
+        "q312_grid_elec_meter_yn",
+        "q466_fridge_yn",
+        "q427_ac_yn",
+        "q501_png_use_yn",
+        "q502_lpg_use_yn"
+      ],
+      "cross_validation": {
+        "random_5fold": {
+          "MAE": 72.19306624071035,
+          "RMSE": 128.5870756894299,
+          "R2": 0.23614590890350773
+        },
+        "state_held_out_5fold": {
+          "MAE": 89.07742056399547,
+          "RMSE": 146.59594183652385,
+          "R2": 0.0072048072890043
+        }
+      }
+    }
+  },
+  "validation": "Five-fold shuffled and state-held-out cross-validation; preprocessing is fitted within each fold. Dashboard models use only the documented profile fields."
+}

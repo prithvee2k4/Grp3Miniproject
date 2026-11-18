@@ -7,7 +7,7 @@
 [Member 2] Standardised text columns (trimmed spaces, fixed letter case)
 [Member 2] Converted interview_date to dates (0 could not be read)
 [Member 2] Added interview_start_hour
-[Member 2] Changed data types: memory 45.6 MB -> 38.4 MB
+[Member 2] Changed data types: memory 39.8 MB -> 34.0 MB
 [Member 2] finished: 14,851 rows x 328 columns
 [Member 3] Replaced 34,763 don't-know codes with missing values
 [Member 3] Validation blanked invalid values: {'avg_monthly_elec_bill': 299, 'age_group_counts': 1}

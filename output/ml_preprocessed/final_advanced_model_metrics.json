@@ -1,0 +1,45 @@
+{
+    "selected_model": "HistGradientBoostingRegressor with all engineered features",
+    "target": "avg_monthly_elec_bill",
+    "target_interpretation": "Average monthly electricity bill (currency amount), not electricity use in kWh",
+    "cross_validation": {
+        "folds": 5,
+        "training_households": 7575,
+        "all_engineered_features": {
+            "MAE_mean": 287.6415563820104,
+            "MAE_std": 6.707323248720475,
+            "RMSE_mean": 433.8104547338818,
+            "RMSE_std": 9.109709079268164,
+            "R2_mean": 0.5722063558204947,
+            "R2_std": 0.012925865498257251
+        },
+        "baseline": {
+            "MAE_mean": 288.3588466655724,
+            "MAE_std": 7.729770108939943,
+            "RMSE_mean": 434.68087782755475,
+            "RMSE_std": 11.821076134764395,
+            "R2_mean": 0.5706016038330148,
+            "R2_std": 0.012422257101703544
+        }
+    },
+    "test_set_exploratory": {
+        "MAE": 283.95781121741044,
+        "RMSE": 428.8868156095672,
+        "R2": 0.5886305429626439,
+        "households": 1894
+    },
+    "predictor_count_before_encoding": 221,
+    "added_engineered_predictors": [
+        "online_payment_status",
+        "fridge_bee_status_experiment",
+        "fridge_off_time_status_experiment",
+        "firewood_use_frequency_experiment",
+        "firewood_collect_purchase_experiment",
+        "firewood_collect_who_experiment",
+        "firewood_collect_frequency_experiment",
+        "fridge_count_experiment",
+        "fridge_age_experiment",
+        "rural_powercut_days_experiment"
+    ],
+    "evaluation_note": "The test set was inspected during earlier model development. Test metrics are exploratory and are not an untouched unbiased final estimate. Feature set selection was based on cross-validation."
+}

@@ -1,0 +1,24 @@
+{
+    "primary_hgb_model": {
+        "MAE": 284.1630131924708,
+        "RMSE": 427.86756317329747,
+        "R2": 0.590583464265362
+    },
+    "quantile70_hgb_model": {
+        "MAE": 313.7868182917418,
+        "Pinball_Loss": 137.77734032548528,
+        "Coverage": 0.6921858500527983
+    },
+    "training_households": 7575,
+    "testing_households": 1894,
+    "original_predictors": 215,
+    "final_predictors": 211,
+    "transformed_features": 363,
+    "excluded_features": [
+        "hhid",
+        "state_code",
+        "sw_state",
+        "sw_dist"
+    ],
+    "evaluation_note": "Exploratory test results; test data was used during model development."
+}

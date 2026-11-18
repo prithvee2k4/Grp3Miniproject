@@ -2,3 +2,9 @@
 pytest>=7.0
 flake8>=6.0
 matplotlib>=3.7
+scikit-learn>=1.4
+scipy>=1.10
+joblib>=1.2
+seaborn>=0.13
+xgboost>=2.0
+catboost>=1.2

@@ -1,8 +1,9 @@
-# CEEW Household Energy ETL Pipeline
+# CEEW Household Energy Intelligence
 
 ## Objective
-Turn the raw India Residential Energy Survey (IRES) 2020 file into a clean, analysis-ready dataset
-and a set of summary reports that future Data Science projects can use directly.
+Transform the CEEW India Residential Energy Survey (IRES) 2020 into a clean,
+analysis-ready dataset, evaluate household electricity-bill models, and provide
+survey-based comparisons through an interactive dashboard.
 
 ## Data Source
 India Residential Energy Survey (IRES) 2020 by the Council on Energy, Environment and Water (CEEW),
@@ -15,6 +16,17 @@ published on Harvard Dataverse (doi:10.7910/DVN/AHFINM). A structured CSV with 1
 `run_etl_pipeline()` in `pipeline.py` runs: **extract() -> transform() -> generate_reports() -> load()**.
 The pipeline only runs when the file is executed directly (`python pipeline.py`).
 
+## Final architecture
+
+1. **ETL and data processing:** clean the raw survey, create derived fields,
+   and generate analysis-ready data and reports.
+2. **Machine learning:** estimate average monthly electricity bills and report
+   validation results. Billed-unit coverage and state-held-out performance do
+   not currently support a responsible consumption-prediction feature.
+3. **Energy intelligence and dashboard:** compare bills across household
+   groups, show contextual checks, and make the survey's limitations visible
+   in Streamlit.
+
 ## Project Structure
 ```
 CEEW_Energy_ETL/
@@ -23,8 +35,10 @@ CEEW_Energy_ETL/
 ├── screenshots/     evidence screenshots
 ├── output/          analysis-ready dataset + pipeline log
 ├── etl/             one module per team member
+├── ml/              benchmark, dashboard models, and evaluation report
 ├── docs/            dataset description, flow diagram, transformation notes
 ├── tests/
+├── app.py           Streamlit dashboard
 ├── pipeline.py
 ├── README.md
 └── requirements.txt
@@ -35,6 +49,37 @@ CEEW_Energy_ETL/
 pip install -r requirements.txt
 python pipeline.py
 ```
+
+## Experimental ML benchmark
+
+The Phase 3 household-bill experiments are separate from the ETL pipeline. To
+reproduce the CatBoost/XGBoost comparison, install the development dependencies
+and run:
+```
+pip install -r requirements-dev.txt
+python ml\benchmark_models.py --folds 5
+```
+The benchmark uses fold-contained preprocessing and reports shuffled and
+state-held-out cross-validation; it does not use the previously inspected test
+split. See [the benchmark report](ml/model_benchmark_report.md) for results,
+caveats, and error analysis. Machine-readable outputs are written to
+`output/ml_preprocessed/`.
+
+## Household energy dashboard
+
+Train the lightweight dashboard models and launch the Streamlit app from the
+repository root:
+```
+python ml/dashboard_models.py
+streamlit run app.py
+```
+The dashboard supports profile-based monthly bill estimates and household
+comparisons. It reports an exploratory billed-units model evaluation but
+intentionally does not expose consumption predictions: billed-unit coverage is
+limited and varies substantially by state, and held-out-state validation must
+be credible before estimates are enabled. The survey is not current billing
+data. Household comparisons are unweighted until the survey-weighting scheme
+has been verified.
 
 ## List of Transformations
 Details and reasons are in [docs/transformations.md](docs/transformations.md).
